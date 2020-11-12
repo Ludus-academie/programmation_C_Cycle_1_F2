@@ -84,6 +84,32 @@ int main()
 
     }
 
+    //contre exemple
+    for(n_i=0;n_i<NBI;n_i++){
+        printf("debut tour %d\n",n_i);
+        printf("bonjour\n");
+        if(n_i==3)break;
+        printf("fin tour %d\n",n_i);
+    }
+
+    for(n_i=0;n_i<NBI;n_i++){
+        printf("debut tour %d\n",n_i);
+        if(n_i<4)continue;
+        printf("bonjour\n");
+    }
+
+
+    for(n_i=0;n_i<NBI;n_i++){
+        printf("debut tour %d\n",n_i);
+        printf("bonjour\n");
+        if(n_i==4)goto sortie;
+        printf("fin tour %d\n",n_i);
+    }
+    sortie:printf("après la boucle\n");
+
+
+
+
 
 
 

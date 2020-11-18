@@ -15,13 +15,12 @@
 //volatile<>const
 
 
-static int cpt();
+int cpt();
 
-void jet_de_dep(int *place,int const jet1,int const jet2);
 
 int main()
 {
-    /*auto int n_a=0,n_b=0;
+    auto int n_a=0,n_b=0;
     volatile int n_Res=0;
     float flt_Res=0;
     int n_tabEntier[TAILLE];
@@ -44,33 +43,10 @@ int main()
 
     int result=fctInit_tabEntier(n_tabEntier);
 
-    int c=cpt();
-
-    int cc=cpt();*/
-
-    //fct
-    //place= jet_de(jet1,jet2);
-
-    //procedure
-     int place=0;
-     int jet1=10;
-     int jet2=10;
-     //appel et passage par adresse
-     jet_de_dep(&place,jet1,jet2);
-
 
 
     return 0;
 }
-
-//procedure et passage par adresse
-// * pointeur
-void jet_de_dep(int *place,int const jet1,int const jet2){
-
-    *place+=(jet1+jet2);
-
-}
-
 
 
 
@@ -156,7 +132,7 @@ void init_tabEntier(int n_tabEntier[TAILLE]){
 }
 
 
-static int cpt(){
+int cpt(){
 
     static int n_c;
     n_c++;

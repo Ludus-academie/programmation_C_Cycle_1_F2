@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1605782452 source:d:\projet_codesblocks\programmation_c_cycle_1_f2\programmation_c_cycle_1_f2\programmation_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	"define.h"
+
+1605782526 source:d:\projet_codesblocks\programmation_c_cycle_1_f2\programmation_c_cycle_1_f2\programmation_c\calculs.c
+	"define.h"
+
+1605782268 d:\projet_codesblocks\programmation_c_cycle_1_f2\programmation_c_cycle_1_f2\programmation_c\define.h
+

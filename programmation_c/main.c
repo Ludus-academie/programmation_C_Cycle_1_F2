@@ -8,6 +8,8 @@
 
 SDL_Window *pWindow=NULL;
 SDL_Renderer *pRenderer=NULL;
+//SDL_Surface *pSurface=NULL;
+
 
 
 int main(int argc, char *argv[])
@@ -30,7 +32,31 @@ int main(int argc, char *argv[])
 
     }
 
+    if(pRenderer){
+
+
+        //Set Color
+        SDL_SetRenderDrawColor(pRenderer,205,92,92,SDL_ALPHA_OPAQUE);
+        //Clear Render
+        SDL_RenderClear(pRenderer);
+
+        //Update render
+        SDL_RenderPresent(pRenderer);
+
+    }
+
+
+
     SDL_Delay(10000);
+
+    if(pRenderer){
+        SDL_DestroyRenderer(pRenderer);
+    }
+
+    if(pWindow){
+      SDL_DestroyWindow(pWindow);
+    }
+
 
     SDL_Quit();
 

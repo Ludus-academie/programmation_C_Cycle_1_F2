@@ -31,13 +31,30 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/cercle.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/cercle.h" />
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/define.h" />
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/droite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/droite.h" />
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/point.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/point.h" />
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/segment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/segment.h" />
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/vue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers/Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525/progamModulaireC/vue.h" />
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

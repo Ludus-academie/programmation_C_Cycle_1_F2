@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1605864431 source:d:\projet_codesblocks\programmation_c_cycle_1_f2\programmation_c_cycle_1_f2\programmation_c\main.c
+1606380982 source:d:\projet_codesblocks\programmation_c_cycle_1_f2\programmation_c_cycle_1_f2\programmation_c\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 

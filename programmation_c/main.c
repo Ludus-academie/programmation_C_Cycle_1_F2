@@ -20,13 +20,22 @@ typedef struct rendererObject{
 
 }rendererObject;
 
+typedef enum gameState{
+
+    play,
+    stop,
+    pause
+
+}gameState;
 
 
+void handleEvents(gameState *state);
 
 int main(int argc, char *argv[])
 {
     renderer tRender;
     rendererObject tRobject;
+    gameState state=stop;
 
     if(SDL_Init(SDL_INIT_EVERYTHING)!=0){
 
@@ -40,13 +49,20 @@ int main(int argc, char *argv[])
         if(tRender.pWindow){
 
             tRender.pRenderer=SDL_CreateRenderer(tRender.pWindow,-1,SDL_RENDERER_PRESENTVSYNC);
+
         }
 
 
 
     }
 
-    if(tRender.pRenderer){
+    state=play;
+
+    do{
+
+         handleEvents(&state);
+
+         if(tRender.pRenderer){
 
          //Set Color
         SDL_SetRenderDrawColor(tRender.pRenderer,205,92,92,SDL_ALPHA_OPAQUE);
@@ -54,7 +70,7 @@ int main(int argc, char *argv[])
           //Clear Render
         SDL_RenderClear(tRender.pRenderer);
 
-        /*tRobject.pSurface=SDL_LoadBMP("./assets/rider.bmp");
+        tRobject.pSurface=SDL_LoadBMP("./assets/rider.bmp");
 
         if(!tRobject.pSurface){
             SDL_Log("Unable to set surface: %s", SDL_GetError());
@@ -87,10 +103,10 @@ int main(int argc, char *argv[])
             }
 
 
-        }*/
+        }
 
 
-        tRobject.pSurface=SDL_CreateRGBSurface (0, 100, 100, 32, 0, 0, 0, 0);
+        /*tRobject.pSurface=SDL_CreateRGBSurface (0, 100, 100, 32, 0, 0, 0, 0);
 
         if(!tRobject.pSurface){
             SDL_Log("Unable to set surface: %s", SDL_GetError());
@@ -124,21 +140,21 @@ int main(int argc, char *argv[])
 
             }
 
+        }*/
+
+
+
+
+            //Update render
+            SDL_RenderPresent(tRender.pRenderer);
+
+
+
         }
 
+    }while(state==play);
 
 
-
-        //Update render
-        SDL_RenderPresent(tRender.pRenderer);
-
-
-
-    }
-
-
-
-    SDL_Delay(10000);
 
     if(tRender.pRenderer){
         SDL_DestroyRenderer(tRender.pRenderer);
@@ -154,4 +170,22 @@ int main(int argc, char *argv[])
 
 
     return 0;
+}
+
+
+
+void handleEvents(gameState *state){
+
+    SDL_Event event;
+
+    if(SDL_PollEvent(&event)){
+
+        switch (event.type){
+            case SDL_QUIT : *state=stop;break;
+
+
+        default:break;
+        }
+    }
+
 }

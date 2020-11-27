@@ -2,14 +2,64 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\droite.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\droite.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="224" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\segment.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="120" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\point.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="448" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\cercle.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\vue.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="187" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\segment.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="181" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\define.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\droite.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="23" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\point.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="380" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\cercle.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\main.c" open="1" top="1" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1148" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Programmer_en_langage_C_LUDUS_F2_Modulaire_et_fichiers\Programmer_en_langage_C_LUDUS_F2_2019_2020-6417465fc722e3165e167dc20e3a5432b512e525\progamModulaireC\vue.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="107" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

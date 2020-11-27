@@ -13,7 +13,14 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="../../../SDL2_Lib_Dev/SDL2-2.0.12/x86_64-w64-mingw32/include" />
 				</Compiler>
+				<Linker>
+					<Add option="-lmingw32" />
+					<Add library="../../../SDL2_Lib_Dev/SDL2-2.0.12/x86_64-w64-mingw32/lib/libSDL2main.a" />
+					<Add library="../../../SDL2_Lib_Dev/SDL2-2.0.12/x86_64-w64-mingw32/lib/libSDL2.dll.a" />
+					<Add directory="../../../SDL2_Lib_Dev/SDL2-2.0.12/x86_64-w64-mingw32/lib" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/programmation_c" prefix_auto="1" extension_auto="1" />
@@ -34,10 +41,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 
 #define WINDOW_WIDTH 1024
@@ -76,7 +77,7 @@ typedef enum controller{
 //Etats player
 typedef enum  playerState{
     idle=1,
-    run
+    move
 
 
 }playerState;
@@ -89,12 +90,14 @@ int main(int argc, char *argv[])
 {
     renderer tRender;
     rendererObject tSprite;
+    rendererObject tFont;
     gameState state=stop;
     controller control=none;
     playerState pState=idle;
     transform tPosition={{0,0}};
     transform tForward={{1,0}};
     flip tFlip=fRight;
+    TTF_Font *font=NULL;
 
     int n_frameNumber,n_frameTimer, n_frameMax;
 
@@ -120,35 +123,57 @@ int main(int argc, char *argv[])
         if((initted&flags)!=flags){
              SDL_Log("IMG_Init:Failed to init required jpg and png support !\n");
              SDL_Log("IMG_Init: %s\n", IMG_GetError());
-
              return 1;
-
         }
+
+
+        //Set ttf
+        if(TTF_Init()==-1) {
+            SDL_Log("TTf init: %s\n", TTF_GetError());
+            return 1;
+        }
+
+
+        font=TTF_OpenFont("./assets/fonts/texgyreheroscn-regular.otf",72);
+        if(!font){
+            SDL_Log("TTF_OpenFont: %s\n", TTF_GetError());
+            //handle error
+        }
+
+
 
 
 
     }
     //init var des ressources
     state=play;
-    n_frameNumber=0;
+    n_frameNumber=1;
     SDL_Rect rectSource={0,0,0,0};
     SDL_Rect rectDest={0,0,0,0};
+    SDL_Rect rectSourcef={0,0,0,0};
+    SDL_Rect rectDestf={0,0,0,0};
+    unsigned int lastTime = 0, currentTime=0;
+    unsigned int FrameTime=0;
+    int n_i=0;
 
     //Boucle de jeu
     do{
+        currentTime = SDL_GetTicks();
+        printf("Frame time 1 : %d\n",currentTime);
         //control event (get controller)
         handleEvents(&state,&control);
 
         //Update transform
         if(control==left){
             tForward.tpos.n_x=-1;
-            pState=run;
+            pState=move;
             tFlip=fLeft;
         }else if (control==right){
             tForward.tpos.n_x=1;
-            pState=run;
+            pState=move;
             tFlip=fRight;
-        }else if(control==none){
+        }
+        else if(control==none){
 
             pState=idle;
         }
@@ -156,16 +181,18 @@ int main(int argc, char *argv[])
         //Set rendu
         if(tRender.pRenderer){
 
+
+
             //Set Color
             SDL_SetRenderDrawColor(tRender.pRenderer,205,92,92,SDL_ALPHA_OPAQUE);
-
 
             //Clear Render
             SDL_RenderClear(tRender.pRenderer);
 
 
+            //Gestion du sprites
             //chargement image png
-            tSprite.pSurface=IMG_Load("./assets/animate-alpha.png");
+            tSprite.pSurface=IMG_Load("./assets/helicopter.png");
 
             //Si pas de reference
             if(!tSprite.pSurface){
@@ -184,7 +211,7 @@ int main(int argc, char *argv[])
 
                     //Gestion du player
                     n_frameTimer=TIME_BETWEEN_2_FRAME_PLAYER;
-                    n_frameMax=6;
+                    n_frameMax=5;
 
 
                     if(pState==idle){
@@ -192,10 +219,12 @@ int main(int argc, char *argv[])
                          /*int n_cycle=(int)(SDL_GetTicks()/100%6);
                         printf("%d",n_cycle);  Affiche le cycle*/
                         //rectSource.x=128*(int)(SDL_GetTicks()/100%6);
-                        rectSource.x=0;
+                        int i;
+
+                        rectSource.x=128*(int)(SDL_GetTicks()/100%n_frameMax);
                         rectSource.y=0;
                         rectSource.w=128;
-                        rectSource.h=82;
+                        rectSource.h=55;
 
 
                         rectDest.x=tPosition.tpos.n_x;
@@ -203,10 +232,10 @@ int main(int argc, char *argv[])
                         rectDest.w=rectSource.w;
                         rectDest.h=rectSource.h;
 
-                        SDL_RenderCopy(tRender.pRenderer,tSprite.pTexture,&rectSource,&rectDest);
+                        SDL_RenderCopyEx(tRender.pRenderer,tSprite.pTexture,&rectSource,&rectDest,0,0,SDL_FLIP_HORIZONTAL);
 
 
-                    }else if(pState==run){
+                    }else if(pState==move){
 
 
 
@@ -214,7 +243,7 @@ int main(int argc, char *argv[])
                         rectSource.x=128*(int)(SDL_GetTicks()/100%n_frameMax);//1 image =>100ms
                         rectSource.y=0;
                         rectSource.w=128;
-                        rectSource.h=82;
+                        rectSource.h=55;
 
                         //Blit image dans rectDest, qui sera envoyé dans le viewoport
                         rectDest.x=rectDest.x+tForward.tpos.n_x;
@@ -227,9 +256,9 @@ int main(int argc, char *argv[])
                         tPosition.tpos.n_y=rectDest.y;
 
                         if(tFlip==fRight)
-                            SDL_RenderCopy(tRender.pRenderer,tSprite.pTexture,&rectSource,&rectDest);
-                        else
                             SDL_RenderCopyEx(tRender.pRenderer,tSprite.pTexture,&rectSource,&rectDest,0,0,SDL_FLIP_HORIZONTAL);
+                        else
+                            SDL_RenderCopy(tRender.pRenderer,tSprite.pTexture,&rectSource,&rectDest);
 
 
                     }
@@ -241,9 +270,79 @@ int main(int argc, char *argv[])
             }
 
 
+             //Gestion de la font
+            SDL_Color color ={0,0,0};
+
+            //Set ressource a afficher
+            //Set Frame rateils
+             char buffer [50];
+             int n;
+
+
+
+            // Print a report once per second
+            /*if (currentTime > lastTime + 16) {
+                //printf("Report: %d\n",currentTime );
+                n=sprintf (buffer, "Report : %d",n_i);
+                lastTime = currentTime;
+                n_i++;
+            }*/
+
+
+
+
+            if(!(tFont.pSurface=TTF_RenderText_Solid(font,buffer,color))){
+
+                SDL_Log("TTF render error: %s\n", TTF_GetError());
+
+            }else{
+                //int w,h;
+               // TTF_SizeText(font,"Hello World",&w,&h);
+
+                tFont.pTexture=SDL_CreateTextureFromSurface(tRender.pRenderer,tFont.pSurface);
+                SDL_FreeSurface(tFont.pSurface);
+
+                //Si pas de reference
+                if(!tFont.pTexture){
+                    SDL_Log("Unable to set texture: %s", SDL_GetError());
+                    return 1;
+                }else{
+                        rectSourcef.x=0;
+                        rectSourcef.y=0;
+                        rectSourcef.w=600;
+                        rectSourcef.h=100;
+
+
+                        rectDestf.x=424;
+                        rectDestf.y=0;
+                        rectDestf.w=50;
+                        rectDestf.h=30;
+
+                        SDL_RenderCopy(tRender.pRenderer,tFont.pTexture,&rectSourcef,&rectDestf);
+
+                }
+
+
+            }
+
+
+
+
             //Update render
             SDL_RenderPresent(tRender.pRenderer);
 
+
+
+            currentTime = SDL_GetTicks();
+            FrameTime=(currentTime/n_frameNumber);
+            n=sprintf (buffer, "%d",FrameTime);
+            printf("currentTime : %d\n",currentTime);
+            printf("nb frame : %d\n",n_frameNumber);
+            printf("Frame time 2 : %d\n",FrameTime);
+
+
+
+            //SDL_Delay(5000);
             n_frameNumber++;
 
 
@@ -251,6 +350,8 @@ int main(int argc, char *argv[])
 
     }while(state==play);
 
+    TTF_CloseFont(font);
+    font=NULL;
 
     //Destruction de la texture
     if(tSprite.pTexture){
@@ -266,6 +367,9 @@ int main(int argc, char *argv[])
       SDL_DestroyWindow(tRender.pWindow);
     }
 
+    TTF_Quit();
+
+    IMG_Quit();
 
     SDL_Quit();
 
@@ -288,6 +392,8 @@ void handleEvents(gameState *state,controller *control){
                         switch(event.key.keysym.sym){
                                 case SDLK_LEFT:*control=left;break;
                                 case SDLK_RIGHT:*control=right;break;
+                                case SDLK_UP:*control=up;break;
+                                case SDLK_DOWN:*control=down;break;
 
                         }break;
 
